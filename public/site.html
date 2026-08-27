@@ -1,0 +1,2765 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Psicólogo Gustavo Franco</title>
+<meta name="description" content="Psicólogo em Arcos - MG. Atendimento individualizado, acolhedor e ético para ansiedade, autoestima, relacionamentos e mais — presencial e online." />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Psicólogo Gustavo Franco" />
+<meta property="og:description" content="Psicólogo em Arcos - MG. Atendimento individualizado, acolhedor e ético para ansiedade, autoestima, relacionamentos e mais — presencial e online." />
+<meta property="og:image" content="social-share.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Psicólogo Gustavo Franco" />
+<meta name="twitter:description" content="Psicólogo em Arcos - MG. Atendimento individualizado, acolhedor e ético para ansiedade, autoestima, relacionamentos e mais — presencial e online." />
+<meta name="twitter:image" content="social-share.jpg" />
+
+<link rel="icon" type="image/webp" href="favicon.webp" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+    --bg:#FFFFFF;
+    --card:#FFFFFF;
+    --ink:#3F3E3E;
+    --ink-soft:#3F3E3E;
+    --olive:#3F3E3E;
+    --olive-dark:#152C45;
+    --olive-darker:#2C2B2B;
+    --cream:#F3E9DC;
+    --rust:#C7373B;
+    --rust-soft:rgba(199,55,59,.12);
+    --navy:#152C45;
+    --navy-deep:#233E58;
+    --blue-light:#EAF2F8;
+    --phoenix-red:#C7373B;
+    --gold:#886735;
+    --color-cta:#2F507B;
+    --color-cta-hover:#233E58;
+  }
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--bg);
+  font-family:'Manrope',sans-serif;
+  color:var(--ink);
+}
+.container{
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 1.5rem;
+}
+
+/* ===== HEADER =====
+   Redesenho pedido: navy profundo (#071C3B), só a fênix (sem nome ao
+   lado), nav centralizado de verdade via grid 1fr/auto/1fr (space-between
+   só centraliza se as pontas tiverem a mesma largura, o que não é o caso
+   aqui — logo e botão têm tamanhos diferentes). CTA vermelho (#C7373B)
+   com ícone, escopado só pro header via ".header-actions .btn-primary"
+   pra não afetar o botão do Hero (mesma classe .btn-primary é reusada lá). */
+.site-header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:#2F507B;
+  }
+  .header-inner{
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+    gap:1.5rem;
+    height:68px;
+  }
+  /* grid-column fixo em cada item — sem isso, quando .header-nav some no
+     mobile (display:none) o grid re-posiciona .header-actions na coluna
+     do meio por auto-placement, e o hambúrguer "escorrega" pro centro em
+     vez de ficar preso na direita. */
+  .header-logo-link{ grid-column:1; justify-self:start; display:block; }
+  .header-logo{
+    display:block;
+    height:40px;
+    width:auto;
+    flex-shrink:0;
+    /* Não existe versão branca do arquivo da fênix no projeto — em vez de
+       recriar a logo, uso o mesmo filtro já aplicado no rodapé
+       (.footer-logo) pra virar silhueta branca sobre fundo escuro. */
+    filter:brightness(0) invert(1);
+  }
+  .header-nav{
+    display:none;
+    grid-column:2;
+    justify-self:center;
+    align-items:center;
+    gap:2.25rem;
+  }
+  @media(min-width:900px){ .header-nav{ display:flex; } }
+  .header-nav a{
+    position:relative;
+    font-size:1.05rem;
+    font-weight:500;
+    color:rgba(255,255,255,.92);
+    text-decoration:none;
+    padding-bottom:5px;
+    transition:color .25s ease;
+  }
+  .header-nav a::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:0;
+    height:2px;
+    background:#886735;
+    transform:scaleX(0);
+    transform-origin:center;
+    transition:transform .25s ease;
+  }
+  .header-nav a:hover{ color:#DCA655; }
+  .header-nav a:hover::after{ transform:scaleX(1); }
+  .header-actions{
+    display:flex;
+    grid-column:3;
+    align-items:center;
+    gap:.6rem;
+    flex-shrink:0;
+    justify-self:end;
+  }
+  @media(min-width:900px){ .header-actions{ gap:1rem; } }
+  .header-actions .btn-primary{
+    display:inline-flex;
+    align-items:center;
+    gap:.4rem;
+    height:40px;
+    padding:0 16px;
+    border-radius:12px;
+    background:#FFFFFF;
+    color:#2F507B;
+    font-size:13px;
+    font-weight:600;
+    text-decoration:none;
+    border:none;
+    box-shadow:0 4px 14px rgba(21,44,69,.18);
+    transition:background-color .25s ease, color .25s ease, transform .25s ease;
+    white-space:nowrap;
+  }
+  .header-actions .btn-primary svg{ width:15px; height:15px; flex-shrink:0; }
+  .header-actions .btn-primary:hover{ background:#EAF0F7; color:#233E58; transform:translateY(-1px); }
+  @media(min-width:900px){
+    .header-actions .btn-primary{
+      gap:10px;
+      height:52px;
+      padding:0 28px;
+      border-radius:16px;
+      font-size:16px;
+    }
+    .header-actions .btn-primary svg{ width:18px; height:18px; }
+  }
+  .header-menu-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:2.5rem;
+    height:2.5rem;
+    border-radius:9999px;
+    border:1px solid rgba(255,255,255,.25);
+    background:transparent;
+    color:#FFFFFF;
+    cursor:pointer;
+  }
+  @media(min-width:900px){ .header-menu-btn{ display:none; } }
+  @media(min-width:1024px){
+    .header-inner{ height:84px; }
+    .header-logo{ height:50px; }
+  }
+
+  /* Painel do menu mobile — não existia antes (o botão hambúrguer não
+     tinha nenhum JS/painel associado). Mesma identidade do header. */
+  .mobile-nav{
+    display:none;
+    flex-direction:column;
+    gap:1.25rem;
+    position:fixed;
+    top:68px;
+    left:0; right:0;
+    background:#2F507B;
+    padding:1.5rem 1.5rem 2rem;
+    z-index:49;
+    border-top:1px solid rgba(255,255,255,.1);
+    box-shadow:0 24px 48px rgba(0,0,0,.28);
+  }
+  .mobile-nav.is-open{ display:flex; }
+  .mobile-nav-links{ display:flex; flex-direction:column; gap:1rem; }
+  .mobile-nav-links a{
+    color:rgba(255,255,255,.92);
+    text-decoration:none;
+    font-size:1.05rem;
+    font-weight:500;
+  }
+  .mobile-nav-links a:hover{ color:#DCA655; }
+  .mobile-nav-cta{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:.55rem;
+    height:50px;
+    border-radius:16px;
+    background:var(--color-cta);
+    color:#FFFFFF;
+    font-size:16px;
+    font-weight:600;
+    text-decoration:none;
+    border:none;
+    transition:background-color .25s ease, color .25s ease;
+  }
+  .mobile-nav-cta:hover{ background:var(--color-cta-hover); color:#FFFFFF; }
+  @media(min-width:900px){ .mobile-nav{ display:none !important; } }
+
+/* ===== HERO ===== */
+.hero{
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-bg{ display:block; width:100%; line-height:0; }
+  .hero-bg img{ display:block; width:100%; height:auto; }
+  .hero-overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:flex-start;
+  }
+  .hero-overlay .container{ width:100%; }
+  .hero-content{ padding-top:3rem; max-width:100%; }
+  .brand-logo,
+  .brand-rule{ display:none !important; }
+  @media(min-width:1024px){
+    .hero-overlay{ align-items:flex-start; }
+    .hero-content{ max-width:44%; padding-top:7.25rem; }
+  }
+  
+  @media(max-width:1023px){
+    
+  }
+  
+  @media(min-width:1024px){
+    
+    
+    
+  }
+  .brand-logo{
+    display:block;
+    width:122px;
+    height:auto;
+    margin-bottom:1.5rem;
+  }
+  .brand-rule{
+    display:block;
+    width:2.5rem;
+    height:2px;
+    background:var(--rust);
+    opacity:.55;
+    margin:-1rem 0 1.5rem;
+  }
+  h1.headline{
+    font-family:'Playfair Display',serif;
+    font-weight:400;
+    font-style:normal;
+    font-size:2rem;
+    line-height:1.25;
+    letter-spacing:0;
+    margin:0;
+    color:#233E58;
+  }
+  .hl-line{ display:block; }
+  .hl-navy{ color:#233E58; }
+  .hl-bronze{ color:#886735; }
+  .hl-red{ color:#C7373B; }
+  .hl-hide-mobile{ display:none; }
+  @media(min-width:640px){ .hl-hide-mobile{ display:inline; } }
+  .hero-badges{
+    display:none;
+    align-items:center;
+    gap:1.4rem;
+    margin-top:1.75rem;
+  }
+  @media(min-width:1024px){ .hero-badges{ display:flex; } }
+  .hero-badge{ display:flex; align-items:center; gap:.65rem; }
+  .hero-badge-icon{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:2.25rem;
+    height:2.25rem;
+    border-radius:9999px;
+    border:1px solid var(--border);
+    background:#FFFFFF;
+    color:var(--rust);
+    flex-shrink:0;
+  }
+  .hero-badge-label{ font-size:.78rem; font-weight:500; line-height:1.3; color:#233E58; }
+  .hero-badge-divider{ width:1px; height:2.25rem; background:rgba(63,62,62,.15); flex-shrink:0; }
+  @media(min-width:640px){ h1.headline{font-size:2.25rem;} }
+  @media(min-width:1024px){ h1.headline{font-size:2.75rem;} }
+  .subtext{
+    margin:1.1rem 0 0;
+    max-width:34rem;
+    font-size:1rem;
+    line-height:1.7;
+    color:rgba(63,62,62,.72);
+  }
+  .cta-row{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:.85rem;
+    margin-top:1.8rem;
+  }
+  .cta-row .btn{
+    width:auto;
+  }
+  .cta-row .btn-primary{
+    min-height:54px;
+    padding:0 28px;
+    border-radius:14px;
+    font-size:16px;
+    font-weight:600;
+  }
+  @media(min-width:480px){
+    .cta-row{ flex-direction:row; flex-wrap:wrap; }
+  }
+  
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:.5rem;
+    padding:.85rem 1.7rem;
+    border-radius:9999px;
+    font-size:.9rem;
+    font-weight:600;
+    text-decoration:none;
+    transition:transform .2s ease, background-color .2s ease, border-color .2s ease;
+    cursor:pointer;
+    border:1px solid transparent;
+  }
+  .btn-primary{
+    background:var(--color-cta);
+    color:#FFFFFF;
+    border-color:transparent;
+    box-shadow:0 10px 24px -12px rgba(199,55,59,.4);
+  }
+  .btn-primary:hover{ background:var(--color-cta-hover); color:#FFFFFF; transform:translateY(-2px); }
+  .btn-secondary{
+    background:var(--card);
+    color:var(--ink);
+    border-color:var(--border);
+  }
+  .btn-secondary:hover{
+    border-color:var(--rust-border);
+    background:var(--olive-soft);
+  }
+  
+  .media-frame{
+    position:relative;
+    width:100%;
+    max-width:640px;
+  }
+  .media-frame img{
+    position:relative;
+    display:block;
+    width:100%;
+    height:auto;
+  }
+
+/* ===== SOBRE ===== */
+.about{
+    position:relative;
+    overflow:hidden;
+    padding:84px 0;
+    background-image:url(images/sobre-bg-mobile.png);
+    background-size:cover;
+    background-position:top center;
+    background-repeat:no-repeat;
+  }
+  @media(min-width:768px){
+    .about{
+      background-image:url(images/sobre-bg-desktop.png);
+      background-position:center;
+    }
+  }
+  .about-grid{
+    position:relative;
+    display:grid;
+    gap:2.5rem;
+    align-items:center;
+    grid-template-columns:1fr;
+  }
+  @media(min-width:1024px){
+    .about{ padding:120px 0; }
+    .about-grid{ grid-template-columns:0.98fr 1fr; gap:3.25rem; }
+  }
+  .about-media{
+    display:flex;
+    justify-content:center;
+  }
+  .media-card-small{
+    position:relative;
+    width:100%;
+    max-width:540px;
+  }
+  .media-card-small::before{
+    content:"";
+    position:absolute;
+    inset:-14px;
+    border-radius:2rem;
+    background:linear-gradient(135deg, var(--rust-soft), rgba(63,62,62,.10));
+    filter:blur(20px);
+    z-index:0;
+  }
+  .media-card-small img{
+    position:relative;
+    z-index:1;
+    display:block;
+    width:100%;
+    aspect-ratio:4/5;
+    object-fit:cover;
+    border-radius:1.5rem;
+    border:1px solid var(--border);
+    box-shadow:0 24px 50px -18px rgba(63,62,62,.35);
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:.4rem;
+    font-size:.78rem;
+    font-weight:700;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--rust);
+  }
+  h2.about-title{
+    font-family:'Playfair Display',serif;
+    font-weight:600;
+    font-size:2.1rem;
+    line-height:1.12;
+    letter-spacing:-.01em;
+    margin:.9rem 0 0;
+    color:var(--ink);
+  }
+  @media(min-width:640px){ h2.about-title{font-size:2.6rem;} }
+  @media(min-width:1024px){ h2.about-title{font-size:3.25rem;} }
+  .about-content p{
+    margin:1.1rem 0 0;
+    font-size:1rem;
+    line-height:1.7;
+    color:var(--ink-soft);
+    max-width:38rem;
+  }
+  .about-content p:first-of-type{
+    margin-top:1.3rem;
+  }
+  .about-services{
+    list-style:none;
+    margin:1.1rem 0 0;
+    padding:0;
+    max-width:38rem;
+    display:flex;
+    flex-direction:column;
+    gap:.7rem;
+  }
+  .about-services li{
+    display:flex;
+    align-items:flex-start;
+    gap:.6rem;
+    font-size:.96rem;
+    line-height:1.6;
+    color:var(--ink-soft);
+  }
+  .about-services-emoji{
+    flex-shrink:0;
+    line-height:1.5;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:.5rem;
+    padding:.85rem 1.7rem;
+    border-radius:9999px;
+    font-size:.9rem;
+    font-weight:600;
+    text-decoration:none;
+    transition:transform .2s ease, background-color .2s ease, border-color .2s ease;
+    cursor:pointer;
+    border:1px solid transparent;
+  }
+  .btn-primary{
+    background:var(--color-cta);
+    color:#FFFFFF;
+    border-color:transparent;
+    box-shadow:0 10px 24px -12px rgba(199,55,59,.4);
+  }
+  .btn-primary:hover{ background:var(--color-cta-hover); color:#FFFFFF; transform:translateY(-2px); }
+  .about-content .btn{
+    margin-top:1.8rem;
+  }
+
+  /* Sobre — identidade Claudia (navy/vermelho/dourado), escopado só
+     dentro de .about-content pra não afetar a seção "who" (template
+     antigo, ainda usa .eyebrow com a cor rust). */
+  .about-content .eyebrow{ color:#886735; }
+  h2.about-title{ color:#233E58; }
+  .about-content p{ color:rgba(63,62,62,.72); }
+  .about-content .about-pending{
+    font-style:italic;
+    color:rgba(63,62,62,.45);
+  }
+  .about-content .btn-primary.about-cta{
+    display:inline-flex;
+    background:#2F507B;
+    color:#FFFFFF;
+    border:none;
+    box-shadow:none;
+    border-radius:12px;
+  }
+  .about-content .btn-primary.about-cta:hover{
+    background:#233E58;
+    color:#FFFFFF;
+    transform:translateY(-2px);
+  }
+
+  /* Card "Abordagem" sobrepondo o canto inferior da foto, na composição
+     da referência enviada. Fica em fluxo normal (não position:absolute)
+     e sobe por cima da foto via margin-top negativa — assim empurra o
+     que vem depois pra baixo automaticamente, sem precisar calcular
+     padding extra por breakpoint nem duplicar regras pra mobile. */
+  .about-media{ display:flex; flex-direction:column; align-items:center; }
+  .about-badge{
+    position:static;
+    display:block;
+    width:100%;
+    max-width:540px;
+    margin:22px auto 0;
+    padding:16px 0 0;
+    background:none;
+    border-radius:0;
+    box-shadow:none;
+    border-top:1px solid rgba(21,44,69,.08);
+    text-align:left;
+  }
+  .about-badge-icon{ display:none; }
+  .about-badge-label{
+    margin:0;
+    font-family:'Manrope',sans-serif;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:#886735;
+  }
+  .about-badge-desc{
+    margin:.4rem 0 0;
+    font-family:'Manrope',sans-serif;
+    font-size:15px;
+    line-height:1.55;
+    color:rgba(63,62,62,.72);
+  }
+
+/* ===== COMO FUNCIONA ===== */
+.how{
+    position:relative;
+    overflow:hidden;
+    background:var(--olive-dark);
+    color:var(--cream);
+    padding:5rem 0;
+  }
+  .how-glow{
+    position:absolute;
+    pointer-events:none;
+    border-radius:9999px;
+    filter:blur(90px);
+  }
+  .how-glow.left{
+    top:-6rem; left:-10rem;
+    width:26rem; height:26rem;
+    background:rgba(199,55,59,.16);
+  }
+  .how-glow.white-top{
+    top:-8rem; left:-8rem;
+    width:22rem; height:22rem;
+    background:rgba(255,255,255,.10);
+  }
+  .how-glow.right{
+    bottom:-8rem; right:-8rem;
+    width:22rem; height:22rem;
+    background:rgba(199,55,59,.12);
+  }
+  .how-inner{ position:relative; }
+  .how-header{
+    max-width:42rem;
+    margin:0 auto;
+    text-align:center;
+  }
+  .badge{
+    display:inline-flex;
+    align-items:center;
+    gap:.5rem;
+    padding:.5rem 1rem;
+    border-radius:9999px;
+    border:1px solid var(--how-accent);
+    background:rgba(204,81,71,.08);
+    font-size:.78rem;
+    font-weight:700;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--how-accent);
+  }
+  h2.how-title{
+    font-family:'Plus Jakarta Sans',sans-serif;
+    font-weight:800;
+    font-size:2rem;
+    line-height:1.15;
+    letter-spacing:-.01em;
+    margin:1.1rem 0 0;
+    color:#FFFFFF;
+  }
+  @media(min-width:640px){ h2.how-title{font-size:2.4rem;} }
+  .how-subtitle{
+    margin:1.1rem 0 0;
+    font-size:1rem;
+    line-height:1.7;
+    color:rgba(255,255,255,.78);
+  }
+  .how-grid{
+    margin-top:3.5rem;
+    display:grid;
+    gap:1.5rem;
+    grid-template-columns:1fr;
+  }
+  @media(min-width:640px){
+    .how-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media(min-width:1024px){
+    .how-grid{grid-template-columns:repeat(4,1fr);}
+  }
+  .how-card{
+    position:relative;
+    border-radius:1.75rem;
+    border:1px solid rgba(255,255,255,.14);
+    background:linear-gradient(160deg, #363535 0%, #292828 100%);
+    padding:2rem;
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+    transform:translateZ(0);
+    transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease, background-color .25s ease;
+  }
+  .how-card:hover{
+    transform:translateY(-4px) translateZ(0);
+    border-color:var(--how-accent);
+    background:#292828;
+    box-shadow:0 20px 50px -18px rgba(199,55,59,.4);
+  }
+  .how-card-icon{
+    position:absolute;
+    top:1.5rem;
+    right:1.5rem;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:2.75rem;
+    height:2.75rem;
+    border-radius:9999px;
+    border:1px solid var(--how-accent);
+    background:rgba(204,81,71,.14);
+    color:var(--how-accent);
+  }
+  .how-card-icon svg{ width:19px; height:19px; }
+  .how-card-number{
+    display:block;
+    font-family:'Plus Jakarta Sans',sans-serif;
+    font-weight:800;
+    font-size:3.75rem;
+    line-height:1;
+    color:#FFFFFF;
+  }
+  .how-card-divider{
+    display:block;
+    width:3rem;
+    height:1px;
+    margin-top:1.25rem;
+    background:var(--how-accent);
+  }
+  .how-card h3{
+    font-family:'Plus Jakarta Sans',sans-serif;
+    font-weight:700;
+    font-size:1.05rem;
+    line-height:1.3;
+    margin:1.25rem 0 0;
+    color:#FFFFFF;
+  }
+  .how-card p{
+    margin:.65rem 0 0;
+    font-size:.9rem;
+    line-height:1.65;
+    color:rgba(255,255,255,.72);
+  }
+  .how-footer{
+    max-width:44rem;
+    margin:3rem auto 0;
+    text-align:center;
+    font-size:1rem;
+    line-height:1.75;
+    color:rgba(255,255,255,.85);
+  }
+  @media(max-width:639px){
+    .how-footer{ display:none; }
+  }
+
+/* ===== PARA QUEM E ===== */
+.who{
+    padding:5rem 0;
+  }
+  .who-head-row{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:1.5rem;
+  }
+  @media(min-width:768px){
+    .who-head-row{flex-direction:row; align-items:flex-end;}
+  }
+  .who-header{ max-width:36rem; }
+  .eyebrow{
+    font-size:.78rem;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--rust);
+  }
+  h2.who-title{
+    font-family:'Plus Jakarta Sans',sans-serif;
+    font-weight:800;
+    font-size:1.9rem;
+    line-height:1.2;
+    letter-spacing:-.01em;
+    margin:.7rem 0 0;
+    color:var(--ink);
+  }
+  @media(min-width:640px){ h2.who-title{font-size:2.2rem;} }
+  .who-header p{
+    margin:1rem 0 0;
+    font-size:1rem;
+    line-height:1.65;
+    color:var(--ink-soft);
+  }
+  .who-grid{
+    margin-top:2.5rem;
+    display:grid;
+    gap:1.5rem;
+    grid-template-columns:1fr;
+  }
+  @media(min-width:640px){
+    .who-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media(min-width:1024px){
+    .who-grid{grid-template-columns:repeat(4,1fr);}
+  }
+  .who-card{
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+    border-radius:1.5rem;
+    border:1px solid var(--border);
+    background:#FFFFFF;
+    box-shadow:0 1px 2px rgba(63,62,62,.05);
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .who-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 20px 40px -18px rgba(63,62,62,.25);
+  }
+  .who-card-media{
+    position:relative;
+    aspect-ratio:4/3;
+    overflow:hidden;
+    background:var(--olive-soft);
+  }
+  .who-card-media img{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .5s ease;
+  }
+  .who-card:hover .who-card-media img{ transform:scale(1.05); }
+  .who-card-body{
+    display:flex;
+    flex-direction:column;
+    flex:1;
+    gap:.6rem;
+    padding:1.5rem;
+  }
+  .who-card h3{
+    font-family:'Plus Jakarta Sans',sans-serif;
+    font-weight:700;
+    font-size:1.05rem;
+    line-height:1.3;
+    margin:0;
+    color:var(--ink);
+  }
+  .who-card p{
+    margin:0;
+    font-size:.88rem;
+    line-height:1.6;
+    color:var(--ink-soft);
+  }
+  .who-card-link{
+    margin-top:auto;
+    padding-top:.5rem;
+    display:inline-flex;
+    align-items:center;
+    gap:.4rem;
+    font-size:.88rem;
+    font-weight:700;
+    color:var(--rust);
+    text-decoration:none;
+  }
+  .who-card-link svg{
+    width:15px; height:15px;
+    transition:transform .2s ease;
+  }
+  .who-card:hover .who-card-link svg{ transform:translateX(3px); }
+
+/* ===== LEGISLACAO / NR-1 ===== */
+.legis{
+    padding:5rem 0;
+  }
+  .legis-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:2rem;
+    background:linear-gradient(135deg, rgba(199,55,59,.14), rgba(199,55,59,.02) 60%, #FFFFFF);
+    padding:3rem 2rem;
+  }
+  @media(min-width:768px){ .legis-card{padding:3.5rem 3rem;} }
+  .legis-grid{
+    display:grid;
+    gap:2.5rem;
+    grid-template-columns:1fr;
+    align-items:center;
+  }
+  @media(min-width:1024px){
+    .legis-grid{grid-template-columns:repeat(12,1fr); gap:3rem;}
+    .legis-content{grid-column:span 6;}
+    .legis-list{grid-column:span 6;}
+  }
+  .legis-icon{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:3.5rem;
+    height:3.5rem;
+    border-radius:9999px;
+    background:var(--rust);
+    color:#FFFFFF;
+    box-shadow:0 14px 30px -12px rgba(199,55,59,.45);
+  }
+  .legis-icon svg{ width:24px; height:24px; }
+  .legis-eyebrow{
+    display:block;
+    margin-top:1.25rem;
+    font-size:.78rem;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--rust);
+  }
+  h2.legis-title{
+    font-family:'Plus Jakarta Sans',sans-serif;
+    font-weight:800;
+    font-size:1.9rem;
+    line-height:1.15;
+    letter-spacing:-.01em;
+    margin:.6rem 0 0;
+    color:var(--ink);
+  }
+  @media(min-width:640px){ h2.legis-title{font-size:2.3rem;} }
+  .legis-content p{
+    margin:1.1rem 0 0;
+    font-size:1rem;
+    line-height:1.75;
+    color:var(--ink-soft);
+    max-width:32rem;
+  }
+  
+  .legis-content .btn{ margin-top:1.8rem; }
+
+  .legis-list{
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+  }
+  .legis-item{
+    display:flex;
+    align-items:flex-start;
+    gap:.9rem;
+    padding:1.15rem 1.3rem;
+    border-radius:1.25rem;
+    background:var(--card);
+    border:1px solid var(--border);
+    box-shadow:0 1px 2px rgba(63,62,62,.05);
+  }
+  .legis-item-check{
+    flex-shrink:0;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:1.75rem;
+    height:1.75rem;
+    border-radius:9999px;
+    background:var(--olive);
+    color:#FFFFFF;
+    margin-top:.1rem;
+  }
+  .legis-item-check svg{ width:14px; height:14px; }
+  .legis-item p{
+    margin:0;
+    font-size:.95rem;
+    line-height:1.55;
+    color:var(--ink);
+  }
+
+/* ===== INVESTIMENTO / DESTAQUE ===== */
+.feature{
+    position:relative;
+    padding:5rem 0;
+  }
+  .feature-grid{
+    display:grid;
+    gap:2.5rem;
+    grid-template-columns:1fr;
+    align-items:center;
+  }
+  @media(min-width:1024px){
+    .feature-grid{grid-template-columns:repeat(12,1fr); gap:3.5rem;}
+    .feature-media{grid-column:span 5;}
+    .feature-content{grid-column:span 7;}
+  }
+  .feature-media{
+    position:relative;
+  }
+  .feature-media-frame{
+    position:relative;
+    width:100%;
+    aspect-ratio:4/5;
+    border-radius:1.75rem;
+    background:var(--olive-soft);
+    border:1px solid var(--border);
+    overflow:hidden;
+  }
+  .feature-media-frame img{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  .badge{
+    display:inline-flex;
+    align-items:center;
+    gap:.5rem;
+    padding:.45rem .9rem;
+    border-radius:9999px;
+    background:var(--rust-soft);
+    color:var(--rust);
+    font-size:.72rem;
+    font-weight:700;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+  }
+  .badge svg{ width:14px; height:14px; }
+  h2.feature-title{
+    font-family:'Plus Jakarta Sans',sans-serif;
+    font-weight:800;
+    font-size:1.9rem;
+    line-height:1.2;
+    letter-spacing:-.01em;
+    margin:1rem 0 0;
+    color:var(--ink);
+  }
+  @media(min-width:640px){ h2.feature-title{font-size:2.2rem;} }
+  .feature-content p.feature-desc{
+    margin:1.1rem 0 0;
+    font-size:1rem;
+    line-height:1.7;
+    color:var(--ink-soft);
+    max-width:34rem;
+  }
+  .feature-stats{
+    margin-top:1.75rem;
+    display:flex;
+    flex-direction:column;
+    gap:.6rem;
+  }
+  .feature-stat{
+    display:flex;
+    align-items:center;
+    gap:.7rem;
+  }
+  .feature-stat-check{
+    flex-shrink:0;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:1.35rem;
+    height:1.35rem;
+    border-radius:9999px;
+    background:var(--rust);
+    color:#FFFFFF;
+  }
+  .feature-stat-check svg{ width:10px; height:10px; }
+  .feature-stat p{
+    margin:0;
+    font-size:.92rem;
+    font-weight:500;
+    line-height:1.35;
+    color:var(--ink);
+  }
+
+/* ===== CTA FINAL ===== */
+.cta-band{
+    padding:4rem 0;
+  }
+  .cta-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:2rem;
+    background:linear-gradient(120deg, var(--olive-darker), var(--olive-dark) 55%, #292828);
+    padding:2.5rem 2rem;
+    display:flex;
+    flex-direction:column;
+    gap:1.75rem;
+    align-items:flex-start;
+    justify-content:space-between;
+  }
+  @media(min-width:768px){
+    .cta-card{
+      flex-direction:row;
+      align-items:center;
+      padding:2.75rem 3rem;
+    }
+  }
+  .cta-text h2{
+    font-family:'Plus Jakarta Sans',sans-serif;
+    font-weight:800;
+    font-size:1.6rem;
+    line-height:1.2;
+    letter-spacing:-.01em;
+    margin:0;
+    color:#FFFFFF;
+  }
+  @media(min-width:640px){ .cta-text h2{font-size:1.9rem;} }
+  .cta-text p{
+    margin:.75rem 0 0;
+    font-size:.95rem;
+    color:rgba(255,255,255,.75);
+  }
+  
+
+/* ===== FOOTER ===== */
+/* ===== FECHAMENTO — antes do footer, sem card. ===== */
+.closing{
+  position:relative;
+  background:#F7F8F8;
+  padding:88px 0;
+  overflow:hidden;
+  text-align:center;
+}
+@media(min-width:1024px){ .closing{ padding:120px 0; } }
+.closing-shape{
+  position:absolute;
+  top:-120px;
+  right:-100px;
+  width:360px;
+  height:360px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(220,166,85,.12) 0%, rgba(220,166,85,0) 70%);
+  pointer-events:none;
+}
+.closing-inner{ position:relative; max-width:36rem; margin:0 auto; padding:0 22px; }
+.closing-title{
+  margin:0;
+  font-family:'Playfair Display',serif;
+  font-weight:500;
+  font-size:clamp(28px,4vw,38px);
+  line-height:1.25;
+  color:#233E58;
+}
+.closing-accent{ color:#C7373B; }
+.closing-text{
+  margin:18px 0 0;
+  font-size:16px;
+  line-height:1.6;
+  color:#3F3E3E;
+}
+.closing-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
+  margin-top:32px;
+  height:56px;
+  padding:0 32px;
+  border-radius:9999px;
+  background:#C7373B;
+  color:#FFFFFF;
+  font-family:'Manrope',sans-serif;
+  font-size:15px;
+  font-weight:700;
+  text-decoration:none;
+  box-shadow:0 14px 30px -14px rgba(199,55,59,.5);
+  transition:background .2s ease, transform .2s ease;
+}
+.closing-cta:hover{ background:#CC5147; transform:translateY(-2px); }
+
+/* ===== LOCALIZAÇÃO — mapa full-width bem aberto + barra de contato
+   com ícones flush logo abaixo (referência enviada pelo usuário). ===== */
+.location{
+  position:relative;
+  background:#F7F8F8;
+  padding-bottom:0;
+}
+.location-header{
+  max-width:44rem;
+  margin:0 auto;
+  padding:88px 22px 40px;
+  text-align:center;
+}
+@media(min-width:1024px){ .location-header{ padding:130px 22px 48px; } }
+.location-eyebrow{
+  display:block;
+  font-family:'Manrope',sans-serif;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#886735;
+}
+.location-title{
+  margin:14px 0 0;
+  font-family:'Playfair Display',serif;
+  font-weight:600;
+  font-size:clamp(28px,3.2vw,38px);
+  line-height:1.15;
+  color:#233E58;
+}
+
+.location-map-wrap{
+  position:relative;
+  width:100%;
+  height:460px;
+  overflow:hidden;
+}
+.location-map{
+  width:100%;
+  height:100%;
+  border:0;
+  display:block;
+}
+
+.location-bar{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  background:#152C45;
+}
+.location-item{
+  padding:36px 28px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap:10px;
+  border-left:1px solid rgba(255,255,255,.3);
+}
+.location-item:first-child{ border-left:none; }
+.location-icon{ color:#DCA655; display:flex; }
+.location-icon svg{ width:22px; height:22px; }
+.location-label{
+  margin:0;
+  font-family:'Manrope',sans-serif;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#DCA655;
+}
+.location-value{
+  margin:0;
+  font-size:15px;
+  line-height:1.5;
+  color:#FFFFFF;
+}
+.location-value a{ color:inherit; text-decoration:none; }
+.location-value a:hover{ text-decoration:underline; }
+
+@media(max-width:767px){
+  .location-header{ padding:56px 22px 32px; }
+  .location-map-wrap{ height:320px; }
+  .location-bar{ grid-template-columns:1fr; }
+  .location-item{
+    border-left:none;
+    border-top:1px solid rgba(255,255,255,.3);
+    padding:26px 20px;
+  }
+  .location-item:first-child{ border-top:none; }
+}
+
+.site-footer{
+    background:#2F507B;
+    color:var(--cream);
+    padding:44px 0 24px;
+  }
+  .footer-grid{
+    display:grid;
+    gap:2rem;
+    grid-template-columns:1fr;
+    text-align:center;
+    justify-items:center;
+  }
+  .footer-social{ justify-content:center; }
+  .footer-contact li{ justify-content:center; }
+  @media(min-width:768px){
+    .footer-grid{ grid-template-columns:1.4fr 1fr 1fr; gap:2rem; text-align:left; justify-items:start; }
+    .footer-social{ justify-content:flex-start; }
+    .footer-contact li{ justify-content:flex-start; }
+  }
+  .footer-logo-mark{
+    display:block;
+    height:56px;
+    width:auto;
+    margin-bottom:14px;
+    filter:brightness(0) invert(55%) sepia(35%) saturate(700%) hue-rotate(355deg) brightness(90%) contrast(88%);
+  }
+  .footer-brand-name{
+    margin:0;
+    font-family:'Playfair Display',serif;
+    font-weight:600;
+    font-size:1.6rem;
+    color:#FFFFFF;
+  }
+  .footer-brand-role{
+    margin:.3rem 0 0;
+    font-family:'Manrope',sans-serif;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:#DCA655;
+  }
+  .footer-ornament{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:14px;
+  }
+  .footer-ornament-line{ width:26px; height:1px; background:rgba(220,166,85,.5); }
+  .footer-tagline{
+    margin:1.1rem 0 0;
+    max-width:26rem;
+    font-size:15px;
+    line-height:1.6;
+    color:rgba(255,255,255,.72);
+  }
+  .footer-heading{
+    margin:0 0 1rem;
+    font-family:'Plus Jakarta Sans',sans-serif;
+    font-weight:700;
+    font-size:.82rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.55);
+  }
+  .footer-links{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:.75rem;
+  }
+  .footer-links a{
+    font-size:15px;
+    color:var(--cream);
+    text-decoration:none;
+    opacity:.85;
+    transition:opacity .2s ease, color .2s ease;
+  }
+  .footer-links a:hover{ opacity:1; color:#DCA655; }
+  .footer-contact li{
+    display:flex;
+    align-items:center;
+    gap:.6rem;
+    font-size:15px;
+    color:rgba(255,255,255,.85);
+  }
+  .footer-contact svg{ width:16px; height:16px; flex-shrink:0; color:#DCA655; }
+  .footer-social{
+    margin-top:1.25rem;
+    display:flex;
+    gap:.6rem;
+  }
+  .footer-social a{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:2.25rem;
+    height:2.25rem;
+    border-radius:9999px;
+    border:1px solid rgba(255,255,255,.18);
+    color:var(--cream);
+    text-decoration:none;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  .footer-social-text{ flex-direction:column; align-items:inherit; gap:.4rem; }
+  .footer-social.footer-social-text a{
+    display:inline-block !important;
+    width:auto !important;
+    height:auto !important;
+    padding:0 !important;
+    border:none !important;
+    border-radius:0 !important;
+    background:none !important;
+    font-size:14px;
+    font-weight:600;
+    color:#DCA655;
+    text-decoration:none;
+  }
+  .footer-social.footer-social-text a:hover{ text-decoration:underline; color:#DCA655; }
+  .footer-social a:hover{ border-color:#DCA655; color:#DCA655; }
+  .footer-social svg{ width:16px; height:16px; }
+  .footer-bottom{
+    margin-top:2rem;
+    padding-top:1.25rem;
+    border-top:1px solid rgba(255,255,255,.12);
+    display:flex;
+    flex-direction:column;
+    gap:.6rem;
+    font-size:.82rem;
+    color:rgba(255,255,255,.5);
+  }
+  @media(min-width:640px){
+    .footer-bottom{ flex-direction:row; align-items:center; justify-content:space-between; }
+  }
+
+  /* ===== Rodapé mobile — redesenho fiel à referência enviada.
+     Esconde a faixa de contato (Localização) só no mobile — o
+     telefone/endereço passam a viver dentro do próprio rodapé, sem
+     duplicar a informação em duas faixas. Maps não é tocado. ===== */
+  @media(max-width:767px){
+    .location-bar{ display:none; }
+
+    .footer-grid{ gap:0; }
+
+    .footer-about{
+      padding:56px 24px 48px;
+      border-bottom:1px solid rgba(255,255,255,.14);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+    .footer-logo-mark{ width:58px; height:auto; margin:0 auto 16px; }
+    .footer-brand-name{ font-size:30px; line-height:1.1; font-weight:400; }
+    .footer-brand-role{ font-size:13px; letter-spacing:.25em; color:#DCA655; margin-top:.4rem; }
+    .footer-ornament{ margin-top:14px; }
+    .footer-ornament-line{ width:70px; background:rgba(220,166,85,.75); }
+    .footer-ornament svg{ stroke:rgba(220,166,85,.9); }
+    .footer-tagline{ font-size:19px; line-height:1.45; color:rgba(255,255,255,.92); margin-top:24px; max-width:none; }
+    .footer-social{ margin-top:24px; }
+    .footer-social a{
+      width:48px;
+      height:48px;
+      border:1px solid rgba(255,255,255,.22);
+      background:transparent;
+      color:#FFFFFF;
+    }
+
+    .footer-nav{ padding:44px 24px; border-bottom:1px solid rgba(255,255,255,.14); }
+    .footer-nav .footer-heading{
+      color:#DCA655;
+      font-size:14px;
+      font-weight:700;
+      letter-spacing:.08em;
+      margin-bottom:26px;
+    }
+    .footer-nav .footer-links{ gap:20px; }
+    .footer-nav .footer-links a{ font-size:17px; color:rgba(255,255,255,.92); opacity:1; }
+
+    .footer-contact-col{ padding:44px 24px; }
+    .footer-contact-col .footer-heading{
+      color:#DCA655;
+      font-size:14px;
+      font-weight:700;
+      letter-spacing:.08em;
+      margin-bottom:24px;
+      text-align:center;
+    }
+    .footer-contact{
+      max-width:320px;
+      margin:0 auto;
+      align-items:flex-start;
+      gap:24px;
+    }
+    .footer-contact li{
+      justify-content:flex-start;
+      align-items:flex-start;
+      gap:12px;
+      text-align:left;
+    }
+    .footer-contact svg{ width:21px; height:21px; margin-top:2px; color:#DCA655; }
+    .footer-contact a,
+    .footer-contact span{
+      font-size:17px;
+      line-height:1.5;
+      color:#FFFFFF;
+      opacity:1;
+    }
+
+    .footer-bottom{
+      margin-top:0;
+      padding:32px 24px;
+      border-top:1px solid rgba(255,255,255,.14);
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      gap:6px;
+      font-size:13px;
+      line-height:1.5;
+      color:rgba(255,255,255,.65);
+    }
+  }
+
+  @media(max-width:374px){
+    .footer-brand-name{ font-size:28px; }
+    .footer-tagline{ font-size:16px; }
+  }
+
+/* ===== SINAIS (QUEM EU AJUDO) =====
+   Refinamento visual profissional: composição editorial pura — sem
+   cards, sem ícones, sem sombras. Números serifados grandes + linha
+   fina + título/descrição, 2 colunas x 3 linhas no desktop, 1 coluna
+   no mobile. Fechamento sem card (era um bloco azul-marinho grande),
+   agora é uma faixa centralizada com borda superior fina. */
+.signs{
+  position:relative;
+  background:#FFFFFF;
+  padding:88px 0;
+  overflow:hidden;
+}
+@media(min-width:900px){ .signs{ padding:130px 0; } }
+
+/* O .container global ja tem padding de 24px, e o .signs-grid tinha o
+   dele por cima disso -- os cards ficavam com ~46px de margem de cada
+   lado (24+22), bem mais estreito do que devia. Zera o padding do
+   container so aqui, deixando o padding do grid ser o unico. No desktop
+   tambem alarga o teto de largura (1180 -> 1500) pra ocupar mais tela. */
+.signs .container{ padding:0; }
+@media(min-width:1024px){ .signs .container{ max-width:1500px; } }
+
+.signs-header{
+  max-width:44rem;
+  margin:0 auto;
+  padding:0 22px;
+  text-align:center;
+}
+.signs-eyebrow{
+  display:block;
+  font-family:'Manrope',sans-serif;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#886735;
+}
+.signs-eyebrow-line{
+  display:block;
+  width:2.25rem;
+  height:2px;
+  margin:.9rem auto 0;
+  background:#C7373B;
+}
+.signs-ornament-mobile{ display:none; }
+.signs-title-mobile{ display:none; }
+.signs-title{
+  margin:1.1rem 0 0;
+  font-family:'Playfair Display',serif;
+  font-weight:400;
+  font-size:2rem;
+  line-height:1.18;
+  color:#233E58;
+}
+@media(min-width:640px){ .signs-title{ font-size:2.6rem; } }
+.signs-red{ color:#C7373B; }
+.signs-intro{
+  margin:1.4rem 0 0;
+  font-size:17px;
+  line-height:1.65;
+  color:#3F3E3E;
+}
+.signs-intro strong{ color:#C7373B; font-weight:700; }
+
+/* Lista editorial — número | linha fina | título+descrição. Uma
+   coluna no mobile, 2 colunas x 3 linhas no desktop. Sem ícone (fica
+   escondido em todo lugar), sem card, sem sombra, sem fundo próprio. */
+.signs-grid{
+  margin-top:56px;
+  display:grid;
+  grid-template-columns:1fr;
+  row-gap:20px;
+  max-width:640px;
+  margin-left:auto;
+  margin-right:auto;
+  padding:0 22px;
+}
+.signs-item{
+  display:grid;
+  grid-template-columns:56px 1px 1fr;
+  column-gap:20px;
+  align-items:start;
+  padding:28px 24px;
+  background:#FFFFFF;
+  border-radius:16px;
+  box-shadow:0 12px 30px rgba(21,44,69,.06);
+}
+
+.signs-item-visual{ display:contents; }
+.signs-icon{ display:none; }
+.signs-item-number{
+  display:block;
+  font-family:'Playfair Display',serif;
+  font-weight:400;
+  font-size:38px;
+  line-height:1;
+  color:#886735;
+}
+.signs-item-line{
+  display:block;
+  width:1px;
+  align-self:stretch;
+  background:rgba(199,55,59,.4);
+}
+.signs-item-body{ margin:0; padding:0; border:none; max-width:none; text-align:left; }
+.signs-item-body h3{
+  margin:0;
+  font-family:'Playfair Display',serif;
+  font-weight:500;
+  font-size:22px;
+  line-height:1.2;
+  color:#233E58;
+}
+.signs-item-body p{
+  margin:8px 0 0;
+  font-size:16px;
+  line-height:1.6;
+  color:#3F3E3E;
+}
+/* Cards mais compactos/retangulares no mobile: reduz numero, titulo,
+   descricao e padding do card (mesma logica ja aplicada nos cards de
+   "Como posso te acompanhar"). Precisa vir DEPOIS das regras base acima
+   (mesma especificidade, quem decide é a ordem no arquivo) e antes do
+   bloco >=900px, senão a regra sem media query ganha da cascata mesmo
+   no mobile. */
+@media(max-width:639px){
+  .signs-item{ padding:22px 20px; }
+  .signs-item-number{ font-size:26px; }
+  .signs-item-body h3{ font-size:18px; }
+  .signs-item-body p{ font-size:14px; line-height:1.5; }
+}
+
+@media(min-width:900px){
+  .signs-grid{
+    max-width:1500px;
+    grid-template-columns:repeat(2,1fr);
+    column-gap:32px;
+    row-gap:32px;
+    padding:0 24px;
+  }
+  .signs-item{
+    grid-template-columns:68px 1px 1fr;
+    column-gap:26px;
+    padding:36px 34px;
+  }
+  .signs-item-number{ font-size:48px; }
+  .signs-item-body h3{ font-size:24px; }
+  .signs-item-body p{ font-size:17px; line-height:1.65; }
+}
+
+/* Fechamento — sem card. Faixa centralizada com borda superior fina,
+   separando visualmente da lista sem precisar de caixa/sombra. */
+.signs-cta{
+  margin:72px auto 0;
+  max-width:640px;
+  padding:56px 22px 0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap:0;
+}
+.signs-cta-left{ display:flex; flex-direction:column; align-items:center; gap:0; }
+.signs-cta-icon svg{ width:24px; height:24px; stroke:#886735; }
+.signs-cta-title{
+  margin:16px 0 0;
+  font-family:'Playfair Display',serif;
+  font-weight:500;
+  font-size:clamp(26px,3.4vw,32px);
+  line-height:1.2;
+  color:#233E58;
+}
+.signs-cta-accent{ color:#C7373B; }
+.signs-cta-text{
+  margin:14px auto 0;
+  max-width:30rem;
+  font-size:16px;
+  line-height:1.6;
+  color:#3F3E3E;
+}
+.signs-cta-divider{ display:none; }
+.signs-cta-right{
+  margin-top:28px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+}
+.signs-cta-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
+  height:56px;
+  padding:0 32px;
+  border-radius:9999px;
+  background:#2F507B;
+  color:#FFFFFF;
+  border:none;
+  font-size:15px;
+  font-weight:700;
+  letter-spacing:.02em;
+  text-decoration:none;
+  white-space:nowrap;
+  box-shadow:0 14px 30px -14px rgba(199,55,59,.3);
+  transition:background .2s ease, color .2s ease, transform .2s ease;
+}
+.signs-cta-btn:hover{ background:#233E58; color:#FFFFFF; transform:translateY(-2px); }
+.signs-cta-accent-inherit{ color:inherit; }
+.signs-cta-note{
+  display:flex;
+  align-items:center;
+  gap:.4rem;
+  margin:0;
+  font-size:13px;
+  color:#3F3E3E;
+}
+.signs-cta-note svg{ display:inline-block; flex-shrink:0; stroke:#886735; }
+.signs-cta-scene{ display:none; }
+
+/* Mobile: eyebrow ganha o ornamento linha–folha–linha, título vira a
+   versão de 3 linhas (igual já era), fechamento com um pouco menos
+   de padding no topo. */
+@media(max-width:767px){
+  .container{ padding-left:24px; padding-right:24px; }
+
+  .signs-eyebrow-line{ display:none; }
+  .signs-ornament-mobile{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    margin-top:12px;
+  }
+  .signs-ornament-line{ width:20px; height:1px; background:rgba(199,55,59,.5); }
+
+  .signs-title-desktop{ display:none; }
+  .signs-title-mobile{
+    display:block;
+    font-size:clamp(40px,11vw,52px);
+    line-height:.98;
+    letter-spacing:-.03em;
+    font-weight:400;
+  }
+
+  .signs-cta{ padding-top:48px; }
+  .signs-item{ grid-template-columns:46px 1px 1fr; column-gap:16px; }
+}
+
+/* ===== FIM SINAIS ===== */
+
+/* ===== AVALIAÇÕES (Google) — conteúdo real, sem estrelas/números
+   inventados (não havia rating por avaliação nos dados recuperados). */
+.testimonials{
+  position:relative;
+  background:#FFFFFF;
+  padding:88px 0;
+}
+@media(min-width:1024px){ .testimonials{ padding:130px 0; } }
+.testimonials-header{
+  max-width:44rem;
+  margin:0 auto;
+  padding:0 22px;
+  text-align:center;
+}
+.testimonials-eyebrow{
+  display:block;
+  font-family:'Manrope',sans-serif;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#886735;
+}
+.testimonials-title{
+  margin:14px 0 0;
+  font-family:'Playfair Display',serif;
+  font-weight:400;
+  font-size:clamp(30px,4vw,42px);
+  line-height:1.2;
+  color:#233E58;
+}
+.testimonials-accent{ color:#886735; }
+.testimonials-intro{
+  margin:16px 0 0;
+  font-size:16px;
+  line-height:1.6;
+  color:#3F3E3E;
+}
+
+.testimonials-grid{
+  margin-top:56px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:44px;
+  max-width:640px;
+  margin-left:auto;
+  margin-right:auto;
+  padding:0 22px;
+}
+@media(min-width:900px){
+  .testimonials-grid{
+    grid-template-columns:repeat(3,1fr);
+    gap:56px 48px;
+    max-width:1160px;
+    padding:0 24px;
+  }
+}
+.testimonial{ position:relative; }
+.testimonial-quote{
+  display:block;
+  font-family:'Playfair Display',serif;
+  font-size:52px;
+  line-height:1;
+  color:#886735;
+  opacity:.4;
+  margin-bottom:-4px;
+}
+.testimonial-text{
+  margin:0;
+  font-family:'Manrope',sans-serif;
+  font-size:16px;
+  line-height:1.65;
+  color:#3F3E3E;
+}
+.testimonial-meta{
+  margin-top:16px;
+  display:flex;
+  align-items:baseline;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.testimonial-name{
+  font-family:'Manrope',sans-serif;
+  font-size:15px;
+  font-weight:700;
+  color:#233E58;
+}
+.testimonial-time{ font-size:13px; color:#3F3E3E; }
+
+@media(max-width:767px){
+  .testimonial:nth-child(n+5){ display:none; }
+}
+
+/* ===== FAQ (card grande + acordeão) — redesenho fiel às referências
+   desktop/mobile. Cores da identidade: navy #071C3B, vermelho #C7373B,
+   azul muito claro #F7F8F8, dourado #886735 (não havia variável de
+   dourado no projeto — mais próximo era --rust, que é terracota, não
+   dourado; então uso o hex direto pedido). */
+.faq-section{
+  position:relative;
+  background:#F7F8F8;
+  padding:88px 0;
+  overflow:hidden;
+}
+@media(min-width:1024px){ .faq-section{ padding:130px 0; } }
+
+.faq-card{
+  position:relative;
+  max-width:1160px;
+  width:calc(100% - 28px);
+  margin:0 auto;
+  border-radius:22px;
+  background:linear-gradient(180deg,#FFFFFF 0%,#F7F8F8 100%);
+  border:1px solid rgba(21,44,69,.06);
+  box-shadow:0 15px 45px rgba(21,44,69,.07);
+  overflow:hidden;
+}
+
+.faq-card-text{
+  position:relative;
+  z-index:2;
+}
+
+.faq-eyebrow{
+  display:block;
+  font-family:'Manrope',sans-serif;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#886735;
+}
+.faq-ornament{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  margin-top:8px;
+}
+.faq-ornament-line{ width:22px; height:1px; background:#886735; }
+.faq-ornament-diamond{ width:5px; height:5px; background:#886735; transform:rotate(45deg); flex-shrink:0; }
+
+.faq-headline{
+  margin:14px 0 0;
+  font-family:'Playfair Display',serif;
+  font-weight:700;
+  letter-spacing:-.01em;
+  font-size:clamp(42px,11.5vw,56px);
+  line-height:1;
+}
+.faq-headline-mobile{ display:block; }
+.faq-headline-desktop{ display:none; }
+.faq-navy{ color:#233E58; }
+.faq-red{ color:#C7373B; }
+
+.faq-card-p{
+  margin:16px 0 0;
+  max-width:600px;
+  font-family:'Manrope',sans-serif;
+  font-size:17px;
+  line-height:1.65;
+  color:rgba(63,62,62,.78);
+}
+
+.faq-cta-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.6rem;
+  width:100%;
+  min-height:58px;
+  margin-top:18px;
+  padding:0 20px;
+  border-radius:13px;
+  background:#2F507B;
+  color:#FFFFFF;
+  border:none;
+  font-family:'Manrope',sans-serif;
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:.02em;
+  text-transform:uppercase;
+  text-decoration:none;
+  text-align:center;
+  transition:background .2s ease, color .2s ease, transform .2s ease;
+}
+.faq-cta-btn:hover{ background:#233E58; color:#FFFFFF; transform:translateY(-2px); }
+
+.faq-microtext{
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+  margin:16px 0 0;
+  font-family:'Manrope',sans-serif;
+  font-size:13px;
+  color:rgba(63,62,62,.6);
+}
+
+/* Cenário mobile — 2ª versão: nada de position:absolute/coluna lateral.
+   Fluxo normal: texto empilhado (largura cheia), depois .faq-scene-wrap
+   full-bleed (sangra pra fora do padding do card via margin negativa)
+   com a foto dentro, ocupando a parte de baixo inteira. No desktop,
+   .faq-scene-wrap vira display:contents (some do layout) pra não
+   atrapalhar o fundo full-bleed que já funciona lá. */
+.faq-card{ padding:32px 24px 0; }
+.faq-card-scene{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:68% bottom;
+}
+.faq-scene-wrap{
+  position:relative;
+  width:calc(100% + 48px);
+  margin-left:-24px;
+  height:330px;
+  margin-top:24px;
+  overflow:hidden;
+}
+
+.faq-header{
+  margin-top:56px;
+  text-align:center;
+}
+.faq-eyebrow-center{ justify-content:center; }
+.faq-subtitle{
+  margin:12px 0 0;
+  font-family:'Playfair Display',serif;
+  font-weight:700;
+  font-size:40px;
+  color:#233E58;
+}
+
+.faq-list{
+  margin:40px auto 0;
+  width:calc(100% - 40px);
+  max-width:1040px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.faq-item{
+  background:rgba(255,255,255,.9);
+  border:1px solid rgba(21,44,69,.06);
+  border-radius:14px;
+  box-shadow:0 2px 10px rgba(21,44,69,.04);
+  overflow:hidden;
+}
+.faq-question{
+  width:100%;
+  min-height:66px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  padding:0 26px;
+  background:none;
+  border:none;
+  text-align:left;
+  font-family:'Manrope',sans-serif;
+  font-size:17px;
+  font-weight:500;
+  color:#233E58;
+  cursor:pointer;
+}
+.faq-chevron{ flex-shrink:0; width:1.1rem; height:1.1rem; transition:transform .25s ease; }
+.faq-question[aria-expanded="true"] .faq-chevron{ transform:rotate(180deg); }
+.faq-answer{
+  display:grid;
+  grid-template-rows:0fr;
+  transition:grid-template-rows .25s ease;
+}
+.faq-answer > p{
+  overflow:hidden;
+  margin:0;
+  padding:0 26px;
+  font-size:16px;
+  line-height:1.6;
+  color:rgba(63,62,62,.75);
+}
+.faq-item.is-open .faq-answer{ grid-template-rows:1fr; }
+.faq-item.is-open .faq-answer > p{ padding:0 26px 20px; }
+
+@media(max-width:767px){
+  .faq-card{
+    width:calc(100% + 24px);
+    margin-left:-12px;
+    margin-right:-12px;
+    padding:0;
+    border:none;
+  }
+  .faq-card-text{
+    position:relative;
+    z-index:3;
+    padding:32px 24px 36px;
+  }
+  .faq-scene-wrap{ display:contents; }
+  .faq-card-scene{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:1;
+    object-fit:cover;
+    object-position:85% center;
+  }
+  .faq-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:2;
+    background:#FFFFFF;
+    pointer-events:none;
+  }
+  .faq-headline-mobile{
+    font-size:clamp(40px,10.8vw,50px);
+    line-height:.96;
+    letter-spacing:-.03em;
+    width:100%;
+    max-width:none;
+  }
+  .faq-eyebrow + .faq-ornament{ margin-top:10px; }
+  .faq-headline-mobile{ margin-top:0; padding-top:28px; }
+  .faq-card-p{ max-width:none; line-height:1.55; }
+  .faq-headline-mobile + .faq-card-p{ margin-top:24px; }
+  .faq-card-p + .faq-card-p{ margin-top:20px; }
+  .faq-cta-btn{ margin-top:24px; padding:0 18px; border-radius:12px; min-height:56px; }
+  .faq-microtext{ margin-top:14px; line-height:1.4; font-size:13.5px; }
+}
+
+@media(min-width:768px){
+  /* Foto vira fundo do card inteiro (não mais painel de 45% ao lado) —
+     mesmo padrão já usado no Hero do site: foto full-bleed atrás,
+     gradiente de leitura por cima, texto sobreposto. Sem divisão/caixa
+     nenhuma entre foto e texto, só transição contínua. */
+  .faq-card{ display:block; min-height:560px; padding:0; }
+  .faq-scene-wrap{ display:contents; }
+  .faq-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:2;
+    background:linear-gradient(to right, #FFFFFF 0%, #FFFFFF 38%, rgba(255,255,255,.82) 54%, rgba(255,255,255,0) 80%);
+    pointer-events:none;
+  }
+  .faq-card-text{
+    position:relative;
+    z-index:3;
+    width:auto;
+    max-width:600px;
+    padding:64px 56px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  .faq-card-scene{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    right:auto; bottom:auto;
+    z-index:1;
+    object-fit:cover;
+    object-position:78% center;
+  }
+  .faq-headline-mobile{ display:none; }
+  .faq-headline-desktop{ display:block; line-height:1.02; font-size:clamp(50px,4.4vw,62px); }
+  .faq-cta-btn{ width:auto; min-height:60px; padding:0 34px; border-radius:13px; font-size:16px; }
+  .faq-subtitle{ font-size:42px; }
+}
+
+@media(min-width:1024px){
+  .faq-card{ min-height:600px; }
+}
+
+
+/* ===== COMO POSSO TE ACOMPANHAR -- refinamento visual (v4): fundo com
+   mais presenca (gradiente + brilho central + folhagem/linhas mais
+   perceptiveis), cards com mais padding e sombra mais difusa, headline
+   mais compacta, eyebrow menor, secao mais integrada (menos vazio entre
+   subtitulo e cards). Escopo 100% .accompany*, nada fora daqui mudou. ===== */
+.accompany{
+  position:relative;
+  background:#FFFFFF url("images/acompanhamento-bg-mobile.webp") center top / cover no-repeat;
+  padding:80px 0;
+  overflow:hidden;
+}
+@media(min-width:900px){
+  .accompany{
+    padding:104px 0;
+    background-image:url("images/acompanhamento-bg-desktop.webp");
+  }
+}
+
+.accompany .container{ max-width:1450px; }
+@media(min-width:1024px){
+  .accompany .container{ width:calc(100% - 120px); padding-left:0; padding-right:0; }
+}
+
+.accompany-header{
+  position:relative;
+  text-align:center;
+  max-width:640px;
+  margin:0 auto;
+}
+@media(min-width:900px){ .accompany-header{ max-width:1100px; } }
+.accompany-eyebrow{
+  display:block;
+  font-family:'Manrope',sans-serif;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:#C7373B;
+}
+.accompany-eyebrow-line{
+  display:block;
+  width:2.25rem;
+  height:2px;
+  margin:.7rem auto 0;
+  background:#C7373B;
+}
+.accompany-title{
+  margin:25px 0 0;
+  font-family:'Playfair Display',serif;
+  font-weight:400;
+  font-size:clamp(2rem,7vw,2.75rem);
+  line-height:1.06;
+  color:#233E58;
+}
+@media(min-width:900px){
+  .accompany-title{ font-size:clamp(3rem,4vw,4.25rem); line-height:.99; }
+}
+.accompany-title em{ font-style:italic; }
+.accompany-title .accompany-red{ color:#C7373B; font-style:normal; }
+/* Quebra de linha diferente por breakpoint -- no mobile "Atendimento para
+   diferentes" nao cabe numa linha so, e o <br> unico antigo deixava
+   "diferentes" sozinho numa linha (orfao). Dois <br> alternativos, cada
+   um escondido no breakpoint errado, resolvem isso sem duplicar o texto. */
+.accompany-title-br-desktop{ display:none; }
+@media(min-width:900px){
+  .accompany-title-br-mobile{ display:none; }
+  .accompany-title-br-desktop{ display:inline; }
+}
+.accompany-ornament{
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  margin:15px 0 0;
+}
+.accompany-ornament-line{ width:1.75rem; height:1px; background:rgba(21,44,69,.2); }
+.accompany-ornament-dot{ width:5px; height:5px; border-radius:50%; background:#C7373B; flex-shrink:0; }
+.accompany-subtitle{
+  margin:12px auto 0;
+  max-width:950px;
+  font-size:17px;
+  line-height:1.65;
+  color:#3F3E3E;
+}
+
+.accompany-grid{
+  position:relative;
+  margin-top:28px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:55px;
+}
+@media(min-width:640px){
+  .accompany-grid{ grid-template-columns:repeat(2,1fr); gap:55px; }
+}
+@media(min-width:900px){
+  .accompany-grid{ grid-template-columns:repeat(3,1fr); gap:55px; }
+}
+
+/* Cards horizontais/retangulares (referencia: largura ~440-470px, altura
+   ~210-230px, aspect-ratio ~1.9/1 num container desktop grande) -- min-height
+   em vez de height fixo, pra nao cortar o card com 3 linhas de descricao;
+   como os 6 textos ja tem comprimento parecido, na pratica todos batem
+   perto do minimo e ficam visualmente iguais. */
+.accompany-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:42px 38px;
+  background:rgba(255,255,255,.94);
+  border:1px solid rgba(35,62,88,.07);
+  border-radius:12px;
+  box-shadow:0 12px 35px rgba(21,44,69,.055);
+}
+@media(max-width:639px){ .accompany-card{ padding:26px 24px; } }
+@media(min-width:900px){ .accompany-card{ min-height:222px; } }
+.accompany-card h3{
+  margin:0;
+  font-family:'Playfair Display',serif;
+  font-weight:500;
+  font-size:26px;
+  color:#233E58;
+}
+@media(max-width:639px){ .accompany-card h3{ font-size:19px; } }
+.accompany-card-line{
+  display:block;
+  width:32px;
+  height:2px;
+  margin:14px auto;
+  background:#C7373B;
+}
+@media(max-width:639px){ .accompany-card-line{ margin:10px auto; } }
+.accompany-card p{
+  margin:0 auto;
+  max-width:360px;
+  font-size:16px;
+  line-height:1.6;
+  color:#3F3E3E;
+}
+@media(max-width:639px){ .accompany-card p{ font-size:14px; line-height:1.5; } }
+
+/* ===== BENEFÍCIOS -- grade de 4 itens com numeros-fantasma (troca a
+   grade de 6 cards brancos). Numero e texto trocam de posicao a cada
+   item alternado (so no desktop, 4 colunas) pra criar o ritmo em
+   ziguezague da referencia. Escopo .perks-*, nao reaproveita .signs-item
+   pra nao arriscar af etar o layout antigo por engano. */
+.perks-grid{
+  margin-top:48px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  column-gap:16px;
+  row-gap:40px;
+  padding:0 22px;
+}
+@media(min-width:640px){
+  .perks-grid{ column-gap:40px; padding:0 24px; }
+}
+@media(min-width:900px){
+  .perks-grid{
+    grid-template-columns:repeat(4,1fr);
+    column-gap:32px;
+    row-gap:48px;
+    margin-top:80px;
+    padding:0 24px;
+  }
+}
+
+.perks-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+  text-align:center;
+}
+
+.perks-number{
+  display:block;
+  text-align:center;
+  font-family:'Manrope',sans-serif;
+  font-weight:600;
+  font-size:60px;
+  line-height:1;
+  color:#FFFFFF;
+  text-shadow:0px 0px 1px #000000;
+}
+@media(min-width:900px){ .perks-number{ font-size:96px; } }
+
+.perks-text{ text-align:center; }
+.perks-text h3{
+  margin:0;
+  font-family:'Playfair Display',serif;
+  font-weight:600;
+  font-size:15px;
+  line-height:1.3;
+  color:#233E58;
+}
+.perks-text p{
+  margin:6px auto 0;
+  max-width:150px;
+  font-size:12px;
+  font-weight:300;
+  line-height:1.5;
+  color:#3F3E3E;
+}
+@media(min-width:900px){
+  .perks-text h3{ font-size:21px; line-height:1.25; }
+  .perks-text p{ margin-top:8px; max-width:280px; font-size:15px; line-height:1.6; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#hero" class="header-logo-link" aria-label="Gustavo Franco"><img class="header-logo" src="images/logo-footer-novo.webp" alt="Gustavo Franco"></a>
+
+    <nav class="header-nav">
+      <a href="#sinais">Sinais</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#faq">Por onde começar</a>
+      <a href="#faq">Dúvidas</a>
+      <a href="#localizacao">Localização</a>
+      <a href="/blog">Blog</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="https://wa.me/5537998182171?text=Ol%C3%A1%2C%20Gustavo!%20Vi%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20conversa%20com%20voc%C3%AA." target="_blank" rel="noopener" class="btn btn-primary"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.35 5.07L2 22l5.06-1.33A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.2 14.2c-.22.62-1.28 1.18-1.77 1.24-.45.06-.99.24-3.3-.7-2.78-1.15-4.53-3.98-4.67-4.17-.14-.19-1.12-1.49-1.12-2.84 0-1.35.7-2.01.95-2.28.25-.27.55-.34.73-.34.18 0 .36 0 .52.01.17.01.39-.06.6.46.22.53.75 1.83.81 1.96.06.13.1.28.02.45-.08.17-.13.28-.25.43-.13.15-.27.34-.38.46-.13.13-.26.27-.11.53.15.26.68 1.12 1.46 1.81 1 .89 1.84 1.16 2.1 1.29.26.13.41.11.56-.07.15-.17.65-.75.82-1.01.17-.26.34-.22.57-.13.23.09 1.47.69 1.72.82.25.13.42.19.48.3.06.11.06.61-.16 1.24z"></path></svg>Agendar conversa</a>
+      <button class="header-menu-btn" aria-label="Abrir menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <nav class="mobile-nav-links">
+    <a href="#sinais">Sinais</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#faq">Por onde começar</a>
+    <a href="#faq">Dúvidas</a>
+    <a href="#localizacao">Localização</a>
+    <a href="/blog">Blog</a>
+  </nav>
+  <a href="https://wa.me/5537998182171?text=Ol%C3%A1%2C%20Gustavo!%20Vi%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20conversa%20com%20voc%C3%AA." target="_blank" rel="noopener" class="mobile-nav-cta"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.35 5.07L2 22l5.06-1.33A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.2 14.2c-.22.62-1.28 1.18-1.77 1.24-.45.06-.99.24-3.3-.7-2.78-1.15-4.53-3.98-4.67-4.17-.14-.19-1.12-1.49-1.12-2.84 0-1.35.7-2.01.95-2.28.25-.27.55-.34.73-.34.18 0 .36 0 .52.01.17.01.39-.06.6.46.22.53.75 1.83.81 1.96.06.13.1.28.02.45-.08.17-.13.28-.25.43-.13.15-.27.34-.38.46-.13.13-.26.27-.11.53.15.26.68 1.12 1.46 1.81 1 .89 1.84 1.16 2.1 1.29.26.13.41.11.56-.07.15-.17.65-.75.82-1.01.17-.26.34-.22.57-.13.23.09 1.47.69 1.72.82.25.13.42.19.48.3.06.11.06.61-.16 1.24z"></path></svg>Agendar conversa</a>
+</div>
+
+<section class="hero" id="hero">
+  <picture class="hero-bg" aria-hidden="true">
+    <source media="(min-width:1024px)" srcset="images/hero-bg-desktop.webp">
+    <img src="images/hero-bg-mobile.webp" alt="">
+  </picture>
+  <div class="hero-overlay">
+    <div class="container">
+      <div class="hero-content">
+        <img class="brand-logo" src="images/logo-hero.webp" alt="Gustavo Franco">
+
+        <span class="brand-rule" aria-hidden="true"></span>
+
+        <h1 class="headline">
+          <span class="hl-line"><span class="hl-navy">Psicologia clínica pra quem busca </span><span class="hl-red">equilíbrio emocional</span><span class="hl-navy"> e </span><span class="hl-red">clareza mental</span><span class="hl-navy hl-hide-mobile"> desde a primeira consulta</span></span>
+        </h1>
+
+        <p class="subtext">Um espaço seguro para você se conhecer, ressignificar histórias e construir novos caminhos.</p>
+
+        <div class="hero-badges">
+          <div class="hero-badge">
+            <span class="hero-badge-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"></path><rect width="14" height="12" x="2" y="6" rx="2"></rect></svg></span>
+            <span class="hero-badge-label">Atendimento<br>Online</span>
+          </div>
+          <span class="hero-badge-divider" aria-hidden="true"></span>
+          <div class="hero-badge">
+            <span class="hero-badge-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12V7a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v5"></path><path d="M4 12h16v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-4Z"></path><path d="M6 18v2"></path><path d="M18 18v2"></path></svg></span>
+            <span class="hero-badge-label">Atendimento<br>Presencial</span>
+          </div>
+          <span class="hero-badge-divider" aria-hidden="true"></span>
+          <div class="hero-badge">
+            <span class="hero-badge-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.35 8.95a1 1 0 0 1-1.3 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.79 17 5 19 5a1 1 0 0 1 1 1z"></path></svg></span>
+            <span class="hero-badge-label">Sigilo e Ética<br>Profissional</span>
+          </div>
+        </div>
+
+        <div class="cta-row">
+          <a href="https://wa.me/5537998182171?text=Ol%C3%A1%2C%20Gustavo!%20Vi%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20conversa%20com%20voc%C3%AA." target="_blank" rel="noopener" class="btn btn-primary">
+            Agendar conversa
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="accompany" id="acompanhar">
+  <div class="container">
+    <div class="accompany-header">
+      <p class="accompany-eyebrow">Como posso te acompanhar</p>
+      <span class="accompany-eyebrow-line" aria-hidden="true"></span>
+      <h2 class="accompany-title">Apoio para<br class="accompany-title-br-mobile"> <em>diferentes</em><br class="accompany-title-br-desktop"> desafios<br class="accompany-title-br-mobile"> <span class="accompany-red">emocionais</span></h2>
+      <span class="accompany-ornament" aria-hidden="true"><span class="accompany-ornament-line"></span><span class="accompany-ornament-dot"></span><span class="accompany-ornament-line"></span></span>
+      <p class="accompany-subtitle">Cada pessoa tem uma história única. Por isso, ofereço um espaço de escuta acolhedora e especializada para diferentes temas e demandas emocionais.</p>
+    </div>
+
+    <div class="accompany-grid">
+      <article class="accompany-card">
+        <h3>Ansiedade e Estresse</h3>
+        <span class="accompany-card-line" aria-hidden="true"></span>
+        <p>Estratégias para lidar com a ansiedade e o estresse do dia a dia, com mais equilíbrio emocional.</p>
+      </article>
+
+      <article class="accompany-card">
+        <h3>Autoestima e Autoconhecimento</h3>
+        <span class="accompany-card-line" aria-hidden="true"></span>
+        <p>Um espaço para fortalecer a autoestima e desenvolver um olhar mais consciente sobre si mesmo.</p>
+      </article>
+
+      <article class="accompany-card">
+        <h3>Relacionamentos e Conflitos Familiares</h3>
+        <span class="accompany-card-line" aria-hidden="true"></span>
+        <p>Acompanhamento para questões afetivas, familiares e dificuldades presentes nas relações.</p>
+      </article>
+
+      <article class="accompany-card">
+        <h3>Desenvolvimento Pessoal</h3>
+        <span class="accompany-card-line" aria-hidden="true"></span>
+        <p>Apoio para o seu crescimento pessoal, construindo novos caminhos e formas de lidar com a vida.</p>
+      </article>
+
+      <article class="accompany-card">
+        <h3>Luto e Dificuldades de Adaptação</h3>
+        <span class="accompany-card-line" aria-hidden="true"></span>
+        <p>Acolhimento em processos de luto e nas dificuldades de adaptação a novas fases da vida.</p>
+      </article>
+
+      <article class="accompany-card">
+        <h3>Saúde Mental e Avaliação Psicológica</h3>
+        <span class="accompany-card-line" aria-hidden="true"></span>
+        <p>Cuidado com dificuldades emocionais, questões de saúde mental e avaliação psicológica quando necessário.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="sinais" class="signs">
+  <div class="container">
+    <div class="signs-header">
+      <p class="signs-eyebrow">COMO A TERAPIA PODE TE AJUDAR</p>
+      <span class="signs-eyebrow-line" aria-hidden="true"></span>
+      <h2 class="signs-title signs-title-desktop">O que muda no seu dia a dia</h2>
+      <h2 class="signs-title signs-title-mobile">O que muda no<br>seu dia a dia</h2>
+      <p class="signs-intro">Um espaço para compreender melhor o que você sente, fortalecer suas relações e desenvolver novas formas de lidar com os desafios da vida.</p>
+    </div>
+
+    <div class="perks-grid">
+      <div class="perks-item">
+        <span class="perks-number" aria-hidden="true">01</span>
+        <div class="perks-text">
+          <h3>Redução da ansiedade</h3>
+          <p>Desenvolva estratégias reais para lidar com a ansiedade do dia a dia, com mais equilíbrio emocional.</p>
+        </div>
+      </div>
+      <div class="perks-item">
+        <div class="perks-text">
+          <h3>Fortalecimento da autoestima</h3>
+          <p>Construa uma relação mais saudável com você, reconhecendo seu valor e suas conquistas.</p>
+        </div>
+        <span class="perks-number" aria-hidden="true">02</span>
+      </div>
+      <div class="perks-item">
+        <span class="perks-number" aria-hidden="true">03</span>
+        <div class="perks-text">
+          <h3>Melhora nos relacionamentos</h3>
+          <p>Fortaleça vínculos e desenvolva uma comunicação mais saudável com quem você ama.</p>
+        </div>
+      </div>
+      <div class="perks-item">
+        <div class="perks-text">
+          <h3>Mais segurança para decidir</h3>
+          <p>Ganhe clareza e confiança para tomar decisões importantes na sua vida, sem culpa ou insegurança.</p>
+        </div>
+        <span class="perks-number" aria-hidden="true">04</span>
+      </div>
+    </div>
+
+    <div class="signs-cta">
+      <div class="signs-cta-left">
+        <span class="signs-cta-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#886735" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2 3 2 6 0 9-2-3-2-6 0-9Z"></path><path d="M12 9c2.5 1 4 3 4 6-3 0-5-1.5-6-4"></path><path d="M12 9c-2.5 1-4 3-4 6 3 0 5-1.5 6-4"></path><path d="M12 15v6"></path></svg></span>
+        <div>
+          <p class="signs-cta-title">Você <span class="signs-cta-accent">não precisa</span> enfrentar tudo isso sozinho.</p>
+          <p class="signs-cta-text">A psicoterapia pode te ajudar a compreender o que sente, aliviar o sofrimento e construir novos caminhos.</p>
+        </div>
+      </div>
+      <span class="signs-cta-divider" aria-hidden="true"></span>
+      <img src="images/signs-cta-photo.webp" alt="" aria-hidden="true" class="signs-cta-scene" />
+      <div class="signs-cta-right">
+        <a href="https://wa.me/5537998182171?text=Ol%C3%A1%2C%20Gustavo!%20Vi%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20conversa%20com%20voc%C3%AA." target="_blank" rel="noopener" class="signs-cta-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.35 5.07L2 22l5.06-1.33A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.2 14.2c-.22.62-1.28 1.18-1.77 1.24-.45.06-.99.24-3.3-.7-2.78-1.15-4.53-3.98-4.67-4.17-.14-.19-1.12-1.49-1.12-2.84 0-1.35.7-2.01.95-2.28.25-.27.55-.34.73-.34.18 0 .36 0 .52.01.17.01.39-.06.6.46.22.53.75 1.83.81 1.96.06.13.1.28.02.45-.08.17-.13.28-.25.43-.13.15-.27.34-.38.46-.13.13-.26.27-.11.53.15.26.68 1.12 1.46 1.81 1 .89 1.84 1.16 2.1 1.29.26.13.41.11.56-.07.15-.17.65-.75.82-1.01.17-.26.34-.22.57-.13.23.09 1.47.69 1.72.82.25.13.42.19.48.3.06.11.06.61-.16 1.24z"></path></svg>Conversar no WhatsApp</a>
+        <p class="signs-cta-note"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#886735" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path></svg>Atendimento online e presencial</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="sobre">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="about-media">
+        <div class="media-card-small">
+          <img src="images/foto-sobre.jpg" alt="Retrato de Gustavo Franco" />
+        </div>
+      </div>
+
+      <div class="about-content">
+        <span class="eyebrow about-eyebrow">Olá, sou</span>
+        <h2 class="about-title">Gustavo Franco</h2>
+
+        <p>Sou Gustavo Franco, psicólogo, e realizo atendimentos individuais de forma acolhedora, ética e personalizada. Busco compreender sua história, suas necessidades e seus objetivos para construirmos juntos um processo terapêutico que respeite o seu momento e o seu ritmo.</p>
+
+        <p>Atuo com demandas como ansiedade, autoestima, autoconhecimento, relacionamentos, conflitos familiares, estresse, luto, dificuldades emocionais e de adaptação, além de questões relacionadas ao desenvolvimento pessoal e à saúde mental. Também realizo avaliação psicológica e intervenções específicas de acordo com cada necessidade.</p>
+
+        <p>Se você sente que é o momento de cuidar de si e compreender melhor o que está vivendo, entre em contato e agende sua sessão.</p>
+
+        <a href="https://wa.me/5537998182171?text=Ol%C3%A1%2C%20Gustavo!%20Vi%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20conversa%20com%20voc%C3%AA." target="_blank" rel="noopener" class="btn btn-primary about-cta">Agendar uma conversa</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" id="avaliacoes">
+  <div class="container">
+    <div class="testimonials-header">
+      <span class="testimonials-eyebrow">AVALIAÇÕES NO GOOGLE</span>
+      <h2 class="testimonials-title">O que dizem <span class="testimonials-accent">sobre o atendimento</span></h2>
+      <p class="testimonials-intro">Avaliações públicas deixadas por pacientes no perfil do Google do Gustavo.</p>
+    </div>
+
+    <div class="testimonials-grid">
+      <article class="testimonial">
+        <span class="testimonial-quote" aria-hidden="true">&ldquo;</span>
+        <p class="testimonial-text">Ótimo atendimento, muito atencioso, lugar confortável, me senti muito a vontade. Recomendo muito.</p>
+        <div class="testimonial-meta">
+          <span class="testimonial-name">Geovanna Souza</span>
+          <span class="testimonial-time">5 anos atrás</span>
+        </div>
+      </article>
+      <article class="testimonial" style="opacity:.45;">
+        <span class="testimonial-quote" aria-hidden="true">&ldquo;</span>
+        <p class="testimonial-text">[ESPAÇO DE EXEMPLO — substituir por uma avaliação real quando disponível]</p>
+        <div class="testimonial-meta">
+          <span class="testimonial-name">Nome do Paciente</span>
+          <span class="testimonial-time">—</span>
+        </div>
+      </article>
+      <article class="testimonial" style="opacity:.45;">
+        <span class="testimonial-quote" aria-hidden="true">&ldquo;</span>
+        <p class="testimonial-text">[ESPAÇO DE EXEMPLO — substituir por uma avaliação real quando disponível]</p>
+        <div class="testimonial-meta">
+          <span class="testimonial-name">Nome do Paciente</span>
+          <span class="testimonial-time">—</span>
+        </div>
+      </article>
+      <article class="testimonial" style="opacity:.45;">
+        <span class="testimonial-quote" aria-hidden="true">&ldquo;</span>
+        <p class="testimonial-text">[ESPAÇO DE EXEMPLO — substituir por uma avaliação real quando disponível]</p>
+        <div class="testimonial-meta">
+          <span class="testimonial-name">Nome do Paciente</span>
+          <span class="testimonial-time">—</span>
+        </div>
+      </article>
+      <article class="testimonial" style="opacity:.45;">
+        <span class="testimonial-quote" aria-hidden="true">&ldquo;</span>
+        <p class="testimonial-text">[ESPAÇO DE EXEMPLO — substituir por uma avaliação real quando disponível]</p>
+        <div class="testimonial-meta">
+          <span class="testimonial-name">Nome do Paciente</span>
+          <span class="testimonial-time">—</span>
+        </div>
+      </article>
+      <article class="testimonial" style="opacity:.45;">
+        <span class="testimonial-quote" aria-hidden="true">&ldquo;</span>
+        <p class="testimonial-text">[ESPAÇO DE EXEMPLO — substituir por uma avaliação real quando disponível]</p>
+        <div class="testimonial-meta">
+          <span class="testimonial-name">Nome do Paciente</span>
+          <span class="testimonial-time">—</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section" id="faq">
+  <div class="container">
+
+    <div class="faq-card">
+      <div class="faq-card-text">
+        <p class="faq-eyebrow">POR ONDE COMEÇAR</p>
+        <span class="faq-ornament" aria-hidden="true"><span class="faq-ornament-line"></span><span class="faq-ornament-diamond"></span><span class="faq-ornament-line"></span></span>
+
+        <h2 class="faq-headline faq-headline-desktop"><span class="faq-navy">Como funciona uma sessão </span><span class="faq-red">comigo?</span></h2>
+        <h2 class="faq-headline faq-headline-mobile"><span class="faq-navy">Como funciona<br>uma sessão<br></span><span class="faq-red">comigo?</span></h2>
+
+        <p class="faq-card-p">O atendimento é individualizado, acolhedor e ético, sempre considerando as suas necessidades e objetivos. No início, busco compreender a demanda que você traz, sua história de vida e os aspectos emocionais envolvidos.</p>
+        <p class="faq-card-p">A partir daí, construímos juntos o processo terapêutico, utilizando estratégias e intervenções adequadas ao seu caso.</p>
+
+        <a href="https://wa.me/5537998182171?text=Ol%C3%A1%2C%20Gustavo!%20Vi%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20conversa%20com%20voc%C3%AA." target="_blank" rel="noopener" class="faq-cta-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.35 5.07L2 22l5.06-1.33A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.2 14.2c-.22.62-1.28 1.18-1.77 1.24-.45.06-.99.24-3.3-.7-2.78-1.15-4.53-3.98-4.67-4.17-.14-.19-1.12-1.49-1.12-2.84 0-1.35.7-2.01.95-2.28.25-.27.55-.34.73-.34.18 0 .36 0 .52.01.17.01.39-.06.6.46.22.53.75 1.83.81 1.96.06.13.1.28.02.45-.08.17-.13.28-.25.43-.13.15-.27.34-.38.46-.13.13-.26.27-.11.53.15.26.68 1.12 1.46 1.81 1 .89 1.84 1.16 2.1 1.29.26.13.41.11.56-.07.15-.17.65-.75.82-1.01.17-.26.34-.22.57-.13.23.09 1.47.69 1.72.82.25.13.42.19.48.3.06.11.06.61-.16 1.24z"></path></svg>QUERO CONVERSAR SOBRE O MEU CASO</a>
+
+        <p class="faq-microtext"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#886735" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path></svg>Ambiente seguro, sigiloso e sem julgamentos.</p>
+      </div>
+
+      <!-- [PENDENTE] Arquivo ainda não enviado — colocar a foto da poltrona
+           exatamente em images/faq-scene-mobile.webp (a tag já está pronta,
+           só falta o arquivo existir nessa pasta). -->
+      <div class="faq-scene-wrap">
+      <img src="images/faq-scene.webp" alt="" class="faq-card-scene">
+    </div>
+    </div>
+
+    <div class="faq-header">
+      <p class="faq-eyebrow faq-eyebrow-center">PRINCIPAIS DÚVIDAS</p>
+      <span class="faq-ornament" aria-hidden="true"><span class="faq-ornament-line"></span><span class="faq-ornament-diamond"></span><span class="faq-ornament-line"></span></span>
+      <h3 class="faq-subtitle">Perguntas frequentes</h3>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span>Como funciona a primeira sessão?</span>
+          <span class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="#C7373B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span>
+        </button>
+        <div class="faq-answer">
+          <p>As sessões de psicoterapia duram 50 minutos e podem ser online ou presenciais, sempre pensadas para apoiar sua jornada de autoconhecimento e transformação.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span>A terapia realmente funciona?</span>
+          <span class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="#C7373B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span>
+        </button>
+        <div class="faq-answer">
+          <p>Sim. Na terapia você encontra um espaço seguro para falar sem julgamento — muitas vezes coisas que nunca conseguiu dizer a ninguém. Só de compartilhar, a carga já diminui. Aos poucos, você passa a enxergar com mais clareza padrões, pensamentos e reações que não percebia sozinho, e isso te ajuda a ter mais assertividade nas suas escolhas.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span>Quanto tempo dura o tratamento?</span>
+          <span class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="#C7373B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span>
+        </button>
+        <div class="faq-answer">
+          <p>Depende do que te trouxe até aqui. Uma questão mais pontual — uma crise, um momento difícil, um medo específico — costuma ser mais rápida de trabalhar. Já padrões antigos ou mudanças na forma de se relacionar naturalmente levam mais tempo. O objetivo também influencia: aliviar um sofrimento pontual é diferente de buscar autoconhecimento e crescimento mais profundos. Mas o que mais determina o ritmo é a sua participação — o quanto você se dedica, reflete e aplica no dia a dia o que conversamos.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span>Atende por convênio?</span>
+          <span class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="#C7373B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span>
+        </button>
+        <div class="faq-answer">
+          <p>[PENDENTE — Gustavo ainda vai decidir se atende por convênio.]</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span>A terapia é sigilosa?</span>
+          <span class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="#C7373B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span>
+        </button>
+        <div class="faq-answer">
+          <p>Sim. O sigilo é dever profissional previsto no Código de Ética do psicólogo e só é rompido nas situações previstas em lei, como risco à vida — e, mesmo nesses casos, isso é conversado com você.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span>Atende online e presencial?</span>
+          <span class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="#C7373B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span>
+        </button>
+        <div class="faq-answer">
+          <p>Atendo somente de forma online, para todo o Brasil.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="location" id="localizacao">
+  <div class="location-map-wrap">
+    <iframe class="location-map" src="https://www.google.com/maps?q=R.%20Aderbal%20Teixeira%20de%20Amorim%2C%20377%20-%20Santo%20Ant%C3%B4nio%2C%20Arcos%20-%20MG%2C%2035588-000&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização do consultório de Gustavo Franco"></iframe>
+  </div>
+
+  <div class="location-bar">
+    <div class="location-item">
+      <span class="location-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span>
+      <p class="location-label">Contato Telefônico</p>
+      <p class="location-value">(37) 99818-2171</p>
+    </div>
+    <div class="location-item">
+      <span class="location-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
+      <p class="location-label">Endereço de Atendimento</p>
+      <p class="location-value">R. Aderbal Teixeira de Amorim, 377 - Santo Antônio, Arcos - MG</p>
+    </div>
+    <div class="location-item">
+      <span class="location-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 6-10 7L2 6"></path></svg></span>
+      <p class="location-label">E-mail de Contato</p>
+      <p class="location-value">[PENDENTE — e-mail de contato]</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-about">
+        <img class="footer-logo-mark" alt="" aria-hidden="true" src="images/logo-footer-novo.webp" />
+        <p class="footer-brand-name">Gustavo Franco</p>
+        <p class="footer-brand-role">Psicólogo</p>
+        <span class="footer-ornament" aria-hidden="true"><span class="footer-ornament-line"></span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#886735" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2 3 2 6 0 9-2-3-2-6 0-9Z"></path><path d="M12 9c2.5 1 4 3 4 6-3 0-5-1.5-6-4"></path><path d="M12 9c-2.5 1-4 3-4 6 3 0 5-1.5 6-4"></path><path d="M12 15v6"></path></svg><span class="footer-ornament-line"></span></span>
+        <p class="footer-tagline">Cuidado que escuta. Terapia que transforma.</p>
+        <div class="footer-social footer-social-text">
+          <a href="https://www.instagram.com/gustavofrancopsi/" target="_blank" rel="noopener">@gustavofrancopsi</a>
+        </div>
+      </div>
+
+      <div class="footer-nav">
+        <p class="footer-heading">Navegação</p>
+        <ul class="footer-links">
+          <li><a href="#sinais">Sinais</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#faq">Por onde começar</a></li>
+          <li><a href="#faq">Dúvidas</a></li>
+          <li><a href="#localizacao">Localização</a></li>
+          <li><a href="/blog">Blog</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact-col">
+        <p class="footer-heading">Contato</p>
+        <ul class="footer-links footer-contact" style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:.75rem;">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            <a href="https://wa.me/5537998182171?text=Ol%C3%A1%2C%20Gustavo!%20Vi%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20conversa%20com%20voc%C3%AA." target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">(37) 99818-2171</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>Santo Antônio, Arcos - MG</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Gustavo Franco. Todos os direitos reservados.</span>
+      <span>Psicólogo &middot; Arcos - MG</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var btn = document.querySelector(".header-menu-btn");
+    var panel = document.getElementById("mobileNav");
+    if (!btn || !panel) return;
+    btn.addEventListener("click", function () {
+      panel.classList.toggle("is-open");
+    });
+    panel.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () {
+        panel.classList.remove("is-open");
+      });
+    });
+  })();
+</script>
+<script>
+  (function () {
+    document.querySelectorAll(".faq-item").forEach(function (item) {
+      var btn = item.querySelector(".faq-question");
+      btn.addEventListener("click", function () {
+        var isOpen = item.classList.contains("is-open");
+        document.querySelectorAll(".faq-item.is-open").forEach(function (other) {
+          if (other !== item) {
+            other.classList.remove("is-open");
+            other.querySelector(".faq-question").setAttribute("aria-expanded", "false");
+          }
+        });
+        item.classList.toggle("is-open", !isOpen);
+        btn.setAttribute("aria-expanded", String(!isOpen));
+      });
+    });
+  })();
+</script>
+</body>
+</html>

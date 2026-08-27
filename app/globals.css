@@ -1,0 +1,45 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+  --background: #ffffff;
+  --foreground: #3f3e3e;
+
+  /* Identidade visual do site principal de Gustavo Franco */
+  --navy: #2f507b;
+  --navy-deep: #233e58;
+  --red: #c7373b;
+  --cream: #f3e9dc;
+  --gold: #886735;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-brand-red: var(--red);
+  --color-cream: var(--cream);
+  --color-gold: var(--gold);
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-playfair);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-manrope), sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-playfair), serif;
+}
+
+.prose :where(h1, h2, h3) {
+  font-family: var(--font-playfair), serif;
+  color: var(--navy);
+}
+
+.prose a {
+  color: var(--navy);
+}
