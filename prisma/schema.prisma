@@ -1,13 +1,15 @@
-// Em desenvolvimento local usamos SQLite (zero configuração).
-// Em produção na Vercel, troque o provider para "postgresql" e aponte
-// DATABASE_URL para o banco Postgres (Vercel Postgres / Neon) — veja o README.
+// Banco de produção: Postgres (Neon), conectado via integração Vercel Storage.
+// A integração criou as variáveis com o prefixo "Gustavo_" (não "DATABASE_URL"
+// puro, por causa de um conflito de nome na hora de conectar) — por isso os
+// nomes abaixo são esses, e não os "genéricos" de outros projetos Prisma.
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("Gustavo_POSTGRES_PRISMA_URL")
+  directUrl = env("Gustavo_POSTGRES_URL_NON_POOLING")
 }
 
 model Post {

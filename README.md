@@ -23,29 +23,22 @@ O painel de admin precisa de um banco de dados de verdade e de um lugar pra guar
 fotos/PDFs — coisas que só existem em produção, não fazem parte do código. São 4 passos
 dentro do painel da Vercel:
 
-### 1. Criar o banco de dados
+### 1. Banco de dados (já feito)
 
-No projeto na Vercel: aba **Storage** → **Create Database** → escolha **Postgres**
-(Neon, oferecido pela própria Vercel). Depois de criado, a Vercel já preenche a variável
-`DATABASE_URL` automaticamente nas Environment Variables do projeto.
+O banco Postgres (Neon) já foi criado via **Storage → Create Database** e conectado
+ao projeto com o prefixo `Gustavo_` nas variáveis (foi preciso um prefixo porque já
+existia uma `DATABASE_URL` antiga no projeto). O `prisma/schema.prisma` já aponta
+para `Gustavo_POSTGRES_PRISMA_URL` / `Gustavo_POSTGRES_URL_NON_POOLING`.
 
-Depois disso, troque uma linha no arquivo `prisma/schema.prisma`:
-
-```diff
- datasource db {
--  provider = "sqlite"
-+  provider = "postgresql"
-   url      = env("DATABASE_URL")
- }
-```
-
-E rode uma vez (localmente, apontando pro banco de produção, ou via `vercel env pull`):
+Falta só rodar uma vez (localmente, com essas duas variáveis no `.env`, copiadas
+da Vercel — ou via `vercel env pull`):
 
 ```bash
 npx prisma db push
 ```
 
-Isso cria a tabela de posts no banco novo.
+Isso cria a tabela de posts no banco novo. Sem esse passo, o site sobe mas o
+blog/admin dão erro ao tentar ler ou salvar posts.
 
 ### 2. Criar o armazenamento de arquivos (fotos/PDFs)
 
