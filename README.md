@@ -1,7 +1,7 @@
 # Blog do Gustavo Franco
 
 Painel de administração + blog público, separado do site principal (que é estático).
-O Gustavo entra com uma senha, escreve o post, opcionalmente anexa uma foto de capa
+O Gustavo entra com e-mail e senha, escreve o post, opcionalmente anexa uma foto de capa
 e/ou um PDF, marca "Publicado" e o artigo aparece em `/blog`.
 
 ## Rodando local (já configurado)
@@ -15,7 +15,7 @@ Abre em http://localhost:3000. Em dev, o banco é um arquivo SQLite local
 (`prisma/dev.db`, já criado) e uploads vão para `public/uploads/` — não precisa
 configurar nada a mais para testar.
 
-Senha de admin local: veja o arquivo `.env` (`ADMIN_PASSWORD`).
+Login de admin local: veja o arquivo `.env` (`ADMIN_EMAIL` e `ADMIN_PASSWORD`).
 
 ## Colocando no ar (Vercel)
 
@@ -55,10 +55,11 @@ cai automaticamente no modo de dev (salva em `public/uploads`), que **não funci
 produção** (a Vercel não guarda arquivos escritos em disco entre uma requisição e outra) —
 por isso esse passo é obrigatório antes de publicar de verdade.
 
-### 3. Definir a senha e o segredo de sessão
+### 3. Definir o login e o segredo de sessão
 
 Aba **Settings → Environment Variables**, adicione:
 
+- `ADMIN_EMAIL` — o e-mail que o Gustavo vai usar pra entrar no painel.
 - `ADMIN_PASSWORD` — a senha que o Gustavo vai usar pra entrar no painel.
 - `SESSION_SECRET` — qualquer string longa e aleatória (pode gerar em
   https://generate-secret.vercel.app/32 ou similar).
@@ -76,7 +77,7 @@ publica uma nova versão automaticamente.
 
 ## Como o Gustavo usa o painel
 
-1. Acessa `/admin/login` e entra com a senha.
+1. Acessa `/admin/login` e entra com e-mail e senha.
 2. `/admin` mostra todos os posts (rascunho ou publicado).
 3. "+ Novo post" abre o editor: título, resumo curto, conteúdo (com botões de
    formatação — negrito, listas, títulos, etc., sem precisar saber Markdown de cor),

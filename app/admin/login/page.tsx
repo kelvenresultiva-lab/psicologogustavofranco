@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 
 export default function AdminLoginPage() {
   const router = useRouter();
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -17,7 +18,7 @@ export default function AdminLoginPage() {
     const res = await fetch("/api/admin/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ password }),
+      body: JSON.stringify({ email, password }),
     });
 
     setLoading(false);
@@ -39,13 +40,23 @@ export default function AdminLoginPage() {
         className="w-full max-w-sm rounded-2xl bg-white p-8 shadow-xl"
       >
         <h1 className="font-display text-2xl text-navy">Painel do Gustavo</h1>
-        <p className="mt-1 text-sm text-[#3F3E3E]/70">Entre com a senha para gerenciar o blog.</p>
+        <p className="mt-1 text-sm text-[#3F3E3E]/70">Entre para gerenciar o blog.</p>
 
         <label className="mt-6 block text-sm font-semibold text-navy">
+          E-mail
+          <input
+            type="email"
+            autoFocus
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="mt-1 w-full rounded-lg border border-black/10 px-3 py-2 text-sm outline-none focus:border-navy"
+          />
+        </label>
+
+        <label className="mt-4 block text-sm font-semibold text-navy">
           Senha
           <input
             type="password"
-            autoFocus
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="mt-1 w-full rounded-lg border border-black/10 px-3 py-2 text-sm outline-none focus:border-navy"
