@@ -14,9 +14,25 @@ const manrope = Manrope({
   weight: ["400", "500", "600", "700"],
 });
 
+const title = "Blog | Gustavo Franco Psicólogo";
+const description =
+  "Artigos sobre ansiedade, autoestima, relacionamentos e saúde mental por Gustavo Franco, psicólogo.";
+
 export const metadata: Metadata = {
-  title: "Blog | Gustavo Franco Psicólogo",
-  description: "Artigos sobre ansiedade, autoestima, relacionamentos e saúde mental por Gustavo Franco, psicólogo.",
+  metadataBase: new URL("https://psicologogustavofranco.vercel.app"),
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    images: [{ url: "/social-share.jpg", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/social-share.jpg"],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
