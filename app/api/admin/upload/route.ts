@@ -31,6 +31,12 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Tipo de upload inválido." }, { status: 400 });
   }
 
-  const result = await saveUploadedFile(file);
-  return NextResponse.json(result);
+  try {
+    const result = await saveUploadedFile(file);
+    return NextResponse.json(result);
+  } catch (err) {
+    console.error("upload failed:", err);
+    const message = err instanceof Error ? err.message : "Erro desconhecido no upload.";
+    return NextResponse.json({ error: `Falha ao salvar o arquivo: ${message}` }, { status: 500 });
+  }
 }
